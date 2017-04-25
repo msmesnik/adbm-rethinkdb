@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/daerion/adbm-rethinkdb#readme",
   "peerDependencies": {
-    "adbm": "^1.0.0",
+    "adbm": "^1.1.0",
     "rethinkdbdash": "^2.3.28"
   },
   "devDependencies": {
