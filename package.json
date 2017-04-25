@@ -19,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/daerion/adbm-rethinkdb/issues"
   },
-  "homepage": "https://github.com/daerion/adbm-rethinkdb#readme"
+  "homepage": "https://github.com/daerion/adbm-rethinkdb#readme",
+  "peerDependencies": {
+    "adbm": "^1.0.0",
+    "rethinkdbdash": "^2.3.28"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "mongodb": "^2.2.26",
+    "rethinkdbdash": "^2.3.28",
+    "standard": "^10.0.2"
+  }
 }
