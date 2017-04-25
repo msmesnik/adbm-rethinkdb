@@ -1,0 +1,23 @@
+{
+  "name": "adbm-rethinkdb",
+  "version": "0.0.1",
+  "description": "RethinkDB adapter for adbm database migration tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daerion/adbm-rethinkdb.git"
+  },
+  "keywords": [
+    "rethinkdb",
+    "migration"
+  ],
+  "author": "Michael Smesnik <ms@tailored-apps.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daerion/adbm-rethinkdb/issues"
+  },
+  "homepage": "https://github.com/daerion/adbm-rethinkdb#readme"
+}
