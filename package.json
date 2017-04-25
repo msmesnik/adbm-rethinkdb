@@ -4,6 +4,9 @@
   "description": "RethinkDB adapter for adbm database migration tool",
   "main": "index.js",
   "scripts": {
+    "docker:db": "docker start adbm_rethinkdb_dev_db || docker run --name adbm_rethinkdb_dev_db -p 28015:28015 -p 8080:8080 -d rethinkdb:2.3",
+    "preversion": "npm run lint && npm run test",
+    "lint": "standard",
     "test": "mocha"
   },
   "repository": {
