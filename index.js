@@ -21,7 +21,7 @@ async function init ({ db: r, dbName, metadata, logger }) {
 }
 
 async function getCompletedMigrationIds ({ db: r, metadata, logger }) {
-  const completed = []
+  const completed = await r.table(metadata).pluck('id').run()
 
   logger.debug('○ Found %s completed migrations in metadata table "%s".', completed.length, metadata)
 
@@ -29,9 +29,11 @@ async function getCompletedMigrationIds ({ db: r, metadata, logger }) {
 }
 
 async function registerMigration ({ id, db: r, metadata }) {
+  await r.table(metadata).insert({ id, completed: new Date() }).run()
 }
 
 async function unregisterMigration ({ id, db: r, metadata }) {
+  await r.table(metadata).get(id).delete().run()
 }
 
 module.exports = {
