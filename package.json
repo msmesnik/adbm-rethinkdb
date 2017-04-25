@@ -1,6 +1,6 @@
 {
   "name": "adbm-rethinkdb",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "RethinkDB adapter for adbm database migration tool",
   "main": "index.js",
   "scripts": {
