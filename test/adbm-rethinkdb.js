@@ -47,15 +47,23 @@ describe('rethinkdb adapter', function () {
     }
   })
 
-  it('initializes the database', async function () {
+  describe('initialization', function () {
     const mockDb = `${dbName}_init_mock_`
 
-    expect(await db.dbList().run()).to.not.contain(mockDb)
+    after(async () => {
+      try {
+        await db.dbDrop(mockDb).run()
+      } catch (e) { }
+    })
 
-    await adapter.init({ db, dbName: mockDb, metadata: mockInfoCollection, logger: defaultLogger })
+    it('initializes the database', async function () {
+      expect(await db.dbList().run()).to.not.contain(mockDb)
 
-    expect(await db.dbList().run()).to.contain(mockDb)
-    expect(await db.db(mockDb).tableList().run()).to.contain(mockInfoCollection)
+      await adapter.init({ db, dbName: mockDb, metadata: mockInfoCollection, logger: defaultLogger })
+
+      expect(await db.dbList().run()).to.contain(mockDb)
+      expect(await db.db(mockDb).tableList().run()).to.contain(mockInfoCollection)
+    })
   })
 
   it('gets a list of all completed migrations', async function () {
