@@ -55,7 +55,7 @@ function createTablesMigration (tables) {
  * @param {array} indices - List of index specifications
  * @returns {{up: *, down: *}}
  */
-async function createIndexMigration (indices) {
+function createIndexMigration (indices) {
   if (!indices || !Array.isArray(indices) || indices.length === 0) {
     throw new Error('"createIndexMigration" expects a non-empty list of index specifications.')
   }
