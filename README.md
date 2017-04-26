@@ -38,3 +38,27 @@ module.exports = helpers.createIndexMigration([
   { table, index: 'arbitraryExpr', spec: (r) => (doc) => r.branch(doc.hasFields('foo'), doc('foo'), doc('bar')) } // Index based on an arbitrary expression
 ])
 ```
+
+## Testing
+Running tests requires a rethinkdb database. You can either point the tests to your own rethinkdb server using environment variables (see below) or use the included `docker:db` npm script to spin up a docker container called `adbm_rethinkdb_dev_db` that will provide you with a basic rethinkdb server. After that, you'll simply want to:
+
+```
+npm run test
+```
+
+### Environment Variables
+```js
+const dbConfig = {
+  host: process.env.DB_HOST || 'localhost',
+  port: process.env.DB_PORT,
+  authKey: process.env.DB_AUTH_KEY,
+  db: process.env.DB_NAME || 'adbm_rethinkdb'
+}
+```
+I.e. when supplying no configuration, tests will attempt to connect to `localhost` on the default port and will attempt to use the `adbm_rethinkdb` database (which will be created if it does not already exist).
+
+## Author
+[Michael Smesnik](https://github.com/daerion) at [tailored apps](https://github.com/tailoredapps)
+
+## License
+MIT
