@@ -5,7 +5,7 @@ RethinkDB adapter for [adbm](https://github.com/daerion/adbm) database migration
 
 ## Installation
 ```
-npm install adbm-mongodb
+npm install adbm-rethinkdb
 ```
 
 ## Helpers
